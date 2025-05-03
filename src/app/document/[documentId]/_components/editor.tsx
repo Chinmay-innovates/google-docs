@@ -4,6 +4,8 @@ import StarterKit from "@tiptap/starter-kit";
 import UnderLine from "@tiptap/extension-underline";
 import TaskList from "@tiptap/extension-task-list";
 import TaskItem from "@tiptap/extension-task-item";
+import FontFamily from "@tiptap/extension-font-family";
+import TextStyle from "@tiptap/extension-text-style";
 import Table from "@tiptap/extension-table";
 import TableCell from "@tiptap/extension-table-cell";
 import TableHeader from "@tiptap/extension-table-header";
@@ -49,6 +51,10 @@ export const Editor = () => {
 		},
 		extensions: [
 			StarterKit,
+			FontFamily.configure({
+				types: ["textStyle"],
+			}),
+			TextStyle,
 			UnderLine,
 			TaskList,
 			TaskItem.configure({
