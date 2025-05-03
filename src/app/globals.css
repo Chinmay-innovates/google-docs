@@ -107,7 +107,7 @@
 
     td,
     th {
-      border: 1px solid black;
+      border: 1px solid hsl(var(--border));
       box-sizing: border-box;
       min-width: 1em;
       padding: 6px 8px;
@@ -120,7 +120,7 @@
     }
 
     th {
-      background-color: #C7C7C7;
+      background-color: hsl(var(--muted));
       font-weight: bold;
       text-align: left;
     }

@@ -44,6 +44,7 @@ const ResizableImageTemplate = ({ node, updateAttributes }: NodeViewProps) => {
 
 	// Lots of work to handle "not" div click events.
 	useEffect(() => {
+		if (!editing) return;
 		const handleClickOutside = (event: MouseEvent) => {
 			if (
 				containerRef.current &&

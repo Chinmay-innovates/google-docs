@@ -7,7 +7,6 @@ import Table from "@tiptap/extension-table";
 import TableCell from "@tiptap/extension-table-cell";
 import TableHeader from "@tiptap/extension-table-header";
 import TableRow from "@tiptap/extension-table-row";
-import Image from "@tiptap/extension-image";
 import ImageResize from "@/components/resizeable-image";
 import { useEditor, EditorContent } from "@tiptap/react";
 
@@ -57,7 +56,6 @@ export const Editor = () => {
 			TableRow,
 			TableHeader,
 			TableCell,
-			Image,
 			ImageResize,
 		],
 		content: `
