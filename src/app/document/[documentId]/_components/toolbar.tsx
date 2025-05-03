@@ -1,8 +1,21 @@
 "use client";
 
+import { Separator } from "@/components/ui/separator";
 import { cn } from "@/lib/utils";
 import { useEditorStore } from "@/store/use-editor-store";
-import { LucideIcon, Undo2Icon } from "lucide-react";
+import {
+	BoldIcon,
+	ItalicIcon,
+	ListTodoIcon,
+	LucideIcon,
+	MessageSquarePlusIcon,
+	PrinterIcon,
+	Redo2Icon,
+	RemoveFormattingIcon,
+	SpellCheckIcon,
+	UnderlineIcon,
+	Undo2Icon,
+} from "lucide-react";
 
 interface ToolbarButtonProps {
 	onClick?: () => void;
@@ -44,12 +57,97 @@ export const Toolbar = () => {
 				icon: Undo2Icon,
 				onClick: () => editor.chain().focus().undo().run(),
 			},
+			{
+				label: "Redo",
+				icon: Redo2Icon,
+				onClick: () => editor.chain().focus().redo().run(),
+			},
+			{
+				label: "Print",
+				icon: PrinterIcon,
+				onClick: () => window.print(),
+			},
+			{
+				label: "Spell Check",
+				icon: SpellCheckIcon,
+				onClick: () => {
+					const current = editor.view.dom.getAttribute("spellcheck");
+					editor.view.dom.setAttribute(
+						"spellcheck",
+						current === "false" ? "true" : "false"
+					);
+				},
+			},
+		],
+		[
+			{
+				label: "Bold",
+				icon: BoldIcon,
+				onClick: () => editor.chain().focus().toggleBold().run(),
+				isActive: editor.isActive("bold"),
+			},
+			{
+				label: "Italic",
+				icon: ItalicIcon,
+				onClick: () => editor.chain().focus().toggleItalic().run(),
+				isActive: editor.isActive("italic"),
+			},
+			{
+				label: "Underline",
+				icon: UnderlineIcon,
+				onClick: () => editor.chain().focus().toggleUnderline().run(),
+				isActive: editor.isActive("underline"),
+			},
+		],
+		[
+			{
+				label: "Comment",
+				icon: MessageSquarePlusIcon,
+				onClick: () => console.log("Comment"),
+				isActive: false,
+			},
+			{
+				label: "List Todo",
+				icon: ListTodoIcon,
+				onClick: () => editor.chain().focus().toggleTaskList().run(),
+				isActive: editor.isActive("taskList"),
+			},
+			{
+				label: "Remove Formatting",
+				icon: RemoveFormattingIcon,
+				onClick: () => editor.chain().focus().unsetAllMarks().run(),
+			},
 		],
 	];
+
+	const TabSeparator = () => (
+		<Separator orientation="vertical" className="h-6 bg-neutral-300" />
+	);
 
 	return (
 		<div className="bg-paper-300 px-2.5 py-0.5 rounded-[24px] min-h-[48px] flex items-center gap-x-0.5 overflow-x-auto">
 			{sections[0].map((section) => (
+				<ToolbarButton key={section.label} {...section} />
+			))}
+			<TabSeparator />
+			{/* TODO: Add Font Family */}
+			<TabSeparator />
+			{/* TODO: Add Heading */}
+			<TabSeparator />
+			{/* TODO: Add Font Size */}
+			<TabSeparator />
+			{sections[1].map((section) => (
+				<ToolbarButton key={section.label} {...section} />
+			))}
+			{/* TODO: Text Color */}
+			{/* TODO: Highlight Color */}
+			<TabSeparator />
+			{/* TODO: Link */}
+			{/* TODO: Image */}
+			{/* TODO: Align */}
+			{/* TODO: Line height */}
+			{/* TODO: List */}
+			{sections[2].map((section) => (
 				<ToolbarButton key={section.label} {...section} />
 			))}
 		</div>
