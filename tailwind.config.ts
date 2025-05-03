@@ -14,6 +14,7 @@ export default {
 				DEFAULT: "#FAFBFD",
 				100: "#F9FBFD",
 				200: "#C7C7C7",
+				300:"#F1F4F9"
 			},
   			background: 'hsl(var(--background))',
   			foreground: 'hsl(var(--foreground))',
