@@ -41,6 +41,10 @@ const ToolbarButton = ({
 	);
 };
 
+const TabSeparator = () => (
+	<Separator orientation="vertical" className="h-6 bg-neutral-300" />
+);
+
 export const Toolbar = () => {
 	const { editor } = useEditorStore();
 	if (!editor) return null;
@@ -119,10 +123,6 @@ export const Toolbar = () => {
 			},
 		],
 	];
-
-	const TabSeparator = () => (
-		<Separator orientation="vertical" className="h-6 bg-neutral-300" />
-	);
 
 	return (
 		<div className="bg-paper-300 px-2.5 py-0.5 rounded-[24px] min-h-[48px] flex items-center gap-x-0.5 overflow-x-auto">
