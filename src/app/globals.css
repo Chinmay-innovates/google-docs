@@ -85,6 +85,24 @@
 
 
 .tiptap{
+   /* Code and preformatted text styles */
+   code {
+    background-color: hsl(var(--muted));
+    color: hsl(var(--primary));
+    border-radius: 0.4rem;
+    padding: 0.25em 0.3em;
+    font-size: 0.85rem;
+  }
+
+  /* Link styles */
+  a {
+    @apply text-blue-600;
+    cursor: pointer;
+    
+    &:hover {
+      @apply underline;
+    }
+  }
   /* Image-specific styling */
   img {
     display: block;
@@ -126,7 +144,8 @@
     }
 
     .selectedCell:after {
-      background: #959596;
+      background: #B4D5FF;
+      border: 1px solid #73B4FC;
       content: "";
       left: 0; right: 0; top: 0; bottom: 0;
       pointer-events: none;
