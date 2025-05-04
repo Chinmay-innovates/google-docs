@@ -11,6 +11,8 @@ import TableCell from "@tiptap/extension-table-cell";
 import TableHeader from "@tiptap/extension-table-header";
 import TableRow from "@tiptap/extension-table-row";
 import ImageResize from "@/components/resizeable-image";
+import { Color } from "@tiptap/extension-color";
+import Highlight from "@tiptap/extension-highlight";
 import { useEditor, EditorContent } from "@tiptap/react";
 
 import { useEditorStore } from "@/store/use-editor-store";
@@ -51,6 +53,10 @@ export const Editor = () => {
 		},
 		extensions: [
 			StarterKit,
+			Highlight.configure({
+				multicolor: true,
+			}),
+			Color,
 			FontFamily.configure({
 				types: ["textStyle"],
 			}),
